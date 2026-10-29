@@ -1,4 +1,4 @@
-const API_BASE = "http://0.0.0.0:8000";
+const API_BASE = "https://founderflow1.vercel.app/";
 
 const form = document.getElementById("taskForm");
 const resultBox = document.getElementById("result");
