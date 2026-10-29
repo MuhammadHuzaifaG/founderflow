@@ -11,12 +11,18 @@ init_db()
 app = FastAPI(
     title=settings.app_name,
     version="0.1.0",
-    description="FounderFlow AI: founder workflow assistant",
+    description="FounderFlow AI: founder workflow assistant"
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:8001",
+        "http://127.0.0.1:8001",
+        "https://MuhammadHuzaifaG.github.io",
+        "https://*.github.io",
+        "https://founderflow1.vercel.app/"
+    ],
     allow_origin_regex=r"https://.*\.github\.io",
     allow_credentials=True,
     allow_methods=["*"],
@@ -30,12 +36,12 @@ async def root():
     return {
         "service": settings.app_name,
         "status": "running",
-        "docs_url": "/docs",
+        "docs_url": "/docs"
     }
 
 @app.get("/health")
 async def health():
     return {
         "status": "ok",
-        "service": settings.app_name,
+        "service": settings.app_name
     }
